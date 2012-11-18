@@ -309,4 +309,3 @@ puts "Retrieving number of cats in the zoo"
 puts zoo.cats
 puts "Retrieving animals in the zoo that have 4 legs"
 puts zoo.search('legs', 4)
-
