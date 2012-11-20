@@ -263,26 +263,9 @@ class Zoo
 
 	attr_accessor :animals
 
-	def initialize
-		@animals = []
-
-		# add birds
-
-		@animals.push(Bird.new(name: "Twitty"))
-		@animals.push(Bird.new(name: "Birdy"))
-
-		# add dogs
-
-		@animals.push(Dog.new(name: "Billion"))
-		@animals.push(Dog.new(name: "Milo"))
-
-		# add cats
-
-		@animals.push(Cat.new(name: "Ashi"))
-		@animals.push(Cat.new(name: "Mashimaro"))
-		@animals.push(Cat.new(name: "Meoaw"))
-
-		end
+	def initialize animals
+		@animals = animals
+	end
 
 	def cats
 		@allcat = animals.select {|a| a.kind_of?(Cat)}
@@ -291,6 +274,7 @@ class Zoo
 
 	def search(part, number)
 		#@output = animals.select {|a| a.legs == 4}
+		#@output = animals.select {|a| a["legs"] == 4} - this is not working :(
 		# still have no idea how to complete this !!!
 		@output = animals.select {|a| a.legs == number}
 		@output.count()
@@ -302,7 +286,23 @@ puts ""
 puts "--------------------------------------------"
 puts "zoo"
 puts "--------------------------------------------"
-zoo = Zoo.new()
+
+animals = []
+# add birds
+animals.push(Bird.new(name: "Twitty"))
+animals.push(Bird.new(name: "Birdy"))
+
+# add dogs
+animals.push(Dog.new(name: "Billion"))
+animals.push(Dog.new(name: "Milo"))
+
+zoo = Zoo.new(animals)
+
+# add cats
+zoo.animals.push(Cat.new(name: "Ashi"))
+zoo.animals.push(Cat.new(name: "Mashimaro"))
+zoo.animals.push(Cat.new(name: "Meoaw"))
+
 puts "List of all animals in the zoo"
 puts zoo.animals
 puts "Retrieving number of cats in the zoo"
