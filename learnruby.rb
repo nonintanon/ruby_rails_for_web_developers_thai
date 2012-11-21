@@ -43,9 +43,9 @@ end
 ##########################################################
 
 person = { 
-  name: "Non Intanon",
-  email: "noni@revenuescienceasia.com",
-  colors: ["Black", "Blue", "Gray"]
+	name: "Non Intanon",
+	email: "noni@revenuescienceasia.com",
+	colors: ["Black", "Blue", "Gray"]
 }
 
 puts ""
@@ -94,19 +94,19 @@ class Mammal < Animal
 	attr_accessor :legs, :baby_food, :special_ability
 
 	def initialize(
-			name = "annonymous", 
-			age = 0, 
-			sex = "n/a", 
-			legs = 2, 
-			baby_food = "unknown", 
-			special_ability = "none")
-		super(name, age, sex)
-		@legs, @baby_food, @special_ability = legs, baby_food, special_ability
-	end
+		name = "annonymous", 
+		age = 0, 
+		sex = "n/a", 
+		legs = 2, 
+		baby_food = "unknown", 
+		special_ability = "none")
+	super(name, age, sex)
+	@legs, @baby_food, @special_ability = legs, baby_food, special_ability
+end
 
-	def greet
-		"Hello, I'm a mammal, named " + name + ". I've " + legs.to_s + " leg(s). My baby food is " + baby_food + ". And my special ability is '" + special_ability + "'."
-	end
+def greet
+	"Hello, I'm a mammal, named " + name + ". I've " + legs.to_s + " leg(s). My baby food is " + baby_food + ". And my special ability is '" + special_ability + "'."
+end
 end
 
 puts ""
@@ -128,18 +128,18 @@ class Bird < Animal
 	attr_accessor :legs, :wings
 
 	def initialize(
-			name = "Twitty",
-			age = 2,
-			sex = "Female",
-			legs = 2, 
-			wings = 2)
-		super(name, age, sex)
-		@legs, @wings = legs, wings
-	end
+		name = "Twitty",
+		age = 2,
+		sex = "Female",
+		legs = 2, 
+		wings = 2)
+	super(name, age, sex)
+	@legs, @wings = legs, wings
+end
 
-	def greet
-		"Hello, I'm a bird, named " + name + ". I've " + legs.to_s + " legs and " + wings.to_s + " wings."
-	end
+def greet
+	"Hello, I'm a bird, named " + name + ". I've " + legs.to_s + " legs and " + wings.to_s + " wings."
+end
 end
 
 puts ""
@@ -206,19 +206,19 @@ class Cat < Mammal
 	attr_accessor :nail_sharp_level
 
 	def initialize(
-			name = "Niancat", 
-			age = 2, 
-			sex = "Female", 
-			legs = 4, 
-			baby_food = "fishes", 
-			nail_sharp_level = "very sharp")
-		super(name, age, sex, legs, baby_food, "tree climber")
-		@nail_sharp_level = nail_sharp_level
-	end
+		name = "Niancat", 
+		age = 2, 
+		sex = "Female", 
+		legs = 4, 
+		baby_food = "fishes", 
+		nail_sharp_level = "very sharp")
+	super(name, age, sex, legs, baby_food, "tree climber")
+	@nail_sharp_level = nail_sharp_level
+end
 
-	def greet()
-		"Hello, I'm a cat, named " + name + ". I eat " + baby_food + " and I'm a " + special_ability + " because my nails are " + nail_sharp_level
-	end
+def greet()
+	"Hello, I'm a cat, named " + name + ". I eat " + baby_food + " and I'm a " + special_ability + " because my nails are " + nail_sharp_level
+end
 end
 
 puts ""
@@ -272,12 +272,22 @@ class Zoo
 		@allcat.count()
 	end
 
-	def search(part, number)
+	def to_hash
+		hash = {}
+		instance_variables.each {|var| hash[var.to_s.delete("@")] = instance_variable_get(var) }
+		hash
+	end
+
+	def search(f, v)
 		#@output = animals.select {|a| a.legs == 4}
 		#@output = animals.select {|a| a["legs"] == 4} - this is not working :(
 		# still have no idea how to complete this !!!
-		@output = animals.select {|a| a.legs == number}
-		@output.count()
+		#@output = animals.select {|a| a.send("#{f}") == v}
+		results = []
+		@animals.select do |a|
+			results.push(a.name) if a.respond_to?("#{f}") and a.send("#{f}") == v
+		end
+		results
 	end
 end
 
