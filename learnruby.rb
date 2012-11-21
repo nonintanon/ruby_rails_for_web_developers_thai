@@ -283,11 +283,10 @@ class Zoo
 		#@output = animals.select {|a| a["legs"] == 4} - this is not working :(
 		# still have no idea how to complete this !!!
 		#@output = animals.select {|a| a.send("#{f}") == v}
-		results = []
-		@animals.select do |a|
-			results.push(a.name) if a.respond_to?("#{f}") and a.send("#{f}") == v
+		results = @animals.select do |a|
+			a.respond_to?("#{f}") and a.send("#{f}") == v
 		end
-		results
+		results.collect! { |r| r.name }
 	end
 end
 
@@ -318,4 +317,4 @@ puts zoo.animals
 puts "Retrieving number of cats in the zoo"
 puts zoo.cats
 puts "Retrieving animals in the zoo that have 4 legs"
-puts zoo.search('legs', 4)
+puts zoo.search('legs', 4).inspect
