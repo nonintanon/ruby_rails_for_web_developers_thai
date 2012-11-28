@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121128073740) do
+ActiveRecord::Schema.define(:version => 20121128092122) do
 
   create_table "hotels", :force => true do |t|
     t.string   "name"
@@ -35,6 +35,7 @@ ActiveRecord::Schema.define(:version => 20121128073740) do
     t.integer  "normal_rate"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
+    t.integer  "hotel_id"
   end
 
   create_table "season_prices", :force => true do |t|

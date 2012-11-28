@@ -1,0 +1,11 @@
+<%= content_tag_for :li, hotel, class: 'row-fluid' do %>
+  <span class='span9'>
+    <%= link_to hotel.name, hotel %> 
+  </span>
+  <span class='span3'>
+    <span class='pull-right'>
+      <%= link_to "Edit", edit_hotel_path(hotel), class: 'btn btn-mini' %> 
+      <%= link_to "Delete", hotel_path(hotel), method: :delete, data: { confirm: "Are you sure?" }, class: 'btn btn-mini btn-danger' %>
+    </span>
+  </span>
+<% end %>
