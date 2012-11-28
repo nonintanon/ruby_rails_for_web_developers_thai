@@ -1,14 +1,25 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Hotelwatcher</title>
-  <%= stylesheet_link_tag    "application", :media => "all" %>
-  <%= javascript_include_tag "application" %>
-  <%= csrf_meta_tags %>
+	<title>Hotel Watcher</title>
+	<%= stylesheet_link_tag    "application", :media => "all" %>
+	<%= javascript_include_tag "application" %>
+	<%= csrf_meta_tags %>
 </head>
 <body>
-
-<%= yield %>
-
+	<div class='navbar navbar-static-top'>
+		<div class='navbar-inner'>
+			<div class='container'>
+				<a class='brand' href='#'>Hotel Watcher</a>
+				<ul class='nav'>
+				</ul>
+				<ul class='nav pull-right'>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<div class="container">
+		<%= yield %>
+	</div>
 </body>
 </html>
