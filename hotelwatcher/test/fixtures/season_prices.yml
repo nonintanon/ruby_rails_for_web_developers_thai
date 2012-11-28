@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  roomtype_id: 1
+  price: 1
+  valid_from: 2012-11-28 14:18:09
+  valid_to: 2012-11-28 14:18:09
+
+two:
+  roomtype_id: 1
+  price: 1
+  valid_from: 2012-11-28 14:18:09
+  valid_to: 2012-11-28 14:18:09
