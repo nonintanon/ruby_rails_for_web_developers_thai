@@ -1,5 +1,7 @@
 class HotelsController < ApplicationController
 
+	before_filter :authenticate_user!
+
 	# list all available hotels
 	
 	def index
