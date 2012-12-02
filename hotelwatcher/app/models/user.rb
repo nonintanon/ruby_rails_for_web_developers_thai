@@ -10,9 +10,16 @@ class User < ActiveRecord::Base
   # attr_accessible :title, :body
 
   has_many :comments
+  has_many :watchers
+  has_many :watched_hotels, through: watchers, source: watchable, conditions: { watchers: { watchable_type: "Hotel" } }
+  has_many :watched_rooms, through: watchers, source: watchable, conditions: { watchers: { watchable_type: "RoomType" } }
 
   def to_s
   	name.present? ? name : email
+  end
+
+  def watching_for resource
+    watchers.where{(watchable_type.eq resource.class.name) & (watchable_id.eq resource.id).first
   end
 
 end

@@ -1,8 +1,9 @@
 <%= content_tag_for :li, hotel, class: 'row-fluid' do %>
   <span class='span9'>
     <%= link_to hotel.name, hotel %>
-    <%= hotel.pictures.count %>
-    <%= hotel.comments.count %>
+    <%= hotel.room_types.count %> room types | 
+    <%= hotel.pictures.count %> photos | 
+    <%= hotel.comments.count %> comments
   </span>
   <span class='span3'>
     <span class='pull-right'>
