@@ -1,7 +1,7 @@
 <%= content_tag_for :li, hotel, class: 'row-fluid' do %>
   <span class='span9'>
     <%= link_to hotel.name, hotel %>
-    <%= hotel.images.count rescue "no photo at the moment" %>
+    <%= hotel.pictures.count %>
     <%= hotel.comments.count %>
   </span>
   <span class='span3'>

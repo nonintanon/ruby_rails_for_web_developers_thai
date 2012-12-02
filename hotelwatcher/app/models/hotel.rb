@@ -3,5 +3,5 @@ class Hotel < ActiveRecord::Base
 
   has_many :room_types
   has_many :comments, as: :commentable
-  has_many :images, as: :imageable
+  has_many :pictures, as: :imageable
 end
