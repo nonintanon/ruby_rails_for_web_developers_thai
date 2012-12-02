@@ -2,3 +2,10 @@
 <h2><%= @hotel.location_code %><h2>
 
 Has <%= @hotel.room_types.count %> room types
+<br/>
+
+<div id='comments'>
+  <%= render @hotel.comments, commentable: @hotel %>
+  <%= render_comment_form_for @hotel %>
+  <%#= render 'shared/register' unless current_user %>
+</div>
