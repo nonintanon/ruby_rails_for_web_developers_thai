@@ -1,0 +1,31 @@
+<h3>Tag</h3>
+
+<%= @tags.count %> tags
+<div>
+  <% @tags.each do |tag| %>
+  <span><%= tag.name %></span>
+  <% end %>
+</div>
+
+<h3>Hotel</h3>
+
+<%= @hotels.count %> hotels
+<div>
+  <% @hotels.each do |hotel| %>
+  <span style='display:block;'>
+    <%= hotel.name %> | <%= hotel.taggings.count %>
+      <% hotel.taggings.each do |tg| %>
+        <span style='font-size: 80%;'><%= tg.tag.name %></span>
+      <% end %>
+  </span>
+  <% end %>
+</div>
+
+<h3>User</h3>
+
+<%= @users.count %> users
+<div>
+  <% @users.each do |user| %>
+  <span><%= user.email %></span>
+  <% end %>
+</div>

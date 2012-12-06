@@ -5,8 +5,7 @@ class CommentsController < ApplicationController
 	respond_to :js, :html, :json		# copy from simple blog
 
 	def new		
-		@com
-		ment = @commentable.comments.build
+		@comment = @commentable.comments.build
 	end
 
 	def create

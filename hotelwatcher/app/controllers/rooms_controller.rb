@@ -5,12 +5,20 @@ class RoomsController < ApplicationController
 	end
 
 	def show
+		@room = get_room
 	end
 
 	def new
+		@room = Room.new
 	end
 
 	def create
+		@room = Room.new(params[:room])
+		if @room.save
+			redirect_to(rooms_path)
+		else
+			render :new
+		end
 	end
 
 	def edit
@@ -24,7 +32,8 @@ class RoomsController < ApplicationController
 
 	private
 
-	def get_room_type
+	def get_room
+		Hotel.find(params[:id])
 	end
 
 end

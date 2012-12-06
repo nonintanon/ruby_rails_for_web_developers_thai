@@ -1,7 +1,7 @@
 <%= content_tag_for :li, hotel, class: 'row-fluid' do %>
   <span class='span9'>
     <%= link_to hotel.name, hotel %>
-    <%= hotel.room_types.count %> room types | 
+    <%= hotel.rooms.count %> room types | 
     <%= hotel.pictures.count %> photos | 
     <%= hotel.comments.count %> comments
   </span>
