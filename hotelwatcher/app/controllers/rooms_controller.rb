@@ -1,5 +1,7 @@
-class RoomTypesController < ApplicationController
+class RoomsController < ApplicationController
+
 	def index
+		@rooms = Room.all
 	end
 
 	def show
@@ -24,4 +26,5 @@ class RoomTypesController < ApplicationController
 
 	def get_room_type
 	end
+
 end

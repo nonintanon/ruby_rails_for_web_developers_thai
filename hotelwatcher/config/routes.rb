@@ -5,6 +5,10 @@ Hotelwatcher::Application.routes.draw do
     resources :comments, except: [:show]
   end
 
+  resources :rooms do
+    resources :comments, except: [:show]
+  end
+
   # match '/:id' => 'high_voltage/pages#show', :as => :static, :via => :get
   # root :to => 'high_voltage/pages#show', :id => 'home'
 

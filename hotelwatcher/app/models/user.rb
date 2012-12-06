@@ -11,15 +11,15 @@ class User < ActiveRecord::Base
 
   has_many :comments
   has_many :watchers
-  has_many :watched_hotels, through: watchers, source: watchable, conditions: { watchers: { watchable_type: "Hotel" } }
-  has_many :watched_rooms, through: watchers, source: watchable, conditions: { watchers: { watchable_type: "RoomType" } }
+  has_many :watched_hotels, through: :watchers, source: :watchable, conditions: { watchers: { watchable_type: "Hotel" } }
+  has_many :watched_rooms, through: :watchers, source: :watchable, conditions: { watchers: { watchable_type: "RoomType" } }
 
   def to_s
   	name.present? ? name : email
   end
 
   def watching_for resource
-    watchers.where{(watchable_type.eq resource.class.name) & (watchable_id.eq resource.id).first
+    watchers.where{(watchable_type.eq resource.class.name) & (watchable_id.eq resource.id)}.first
   end
 
 end
