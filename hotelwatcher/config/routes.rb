@@ -3,10 +3,12 @@ Hotelwatcher::Application.routes.draw do
 
   resources :hotels do
     resources :comments, except: [:show]
+    resources :watches, except: [:show]
   end
 
   resources :rooms do
     resources :comments, except: [:show]
+    resources :watches, except: [:show]
   end
 
   # match '/:id' => 'high_voltage/pages#show', :as => :static, :via => :get

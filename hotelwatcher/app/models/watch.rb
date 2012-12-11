@@ -3,4 +3,7 @@ class Watch < ActiveRecord::Base
 
 	belongs_to :user
 	belongs_to :watchable, polymorphic: true
+
+  belongs_to :watchable_hotel, foreign_key: :watchable_id, class_name: "Hotel", conditions: { watches: { watchable_type: "Hotel" } }
+  belongs_to :watchable_room, foreign_key: :watchable_id, class_name: "Room", conditions: { watches: { watchable_type: "Room" } }
 end
