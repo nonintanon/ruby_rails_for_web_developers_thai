@@ -13,7 +13,6 @@ class CommentsController < ApplicationController
 		if @comment.user = current_user and @comment.save
 			redirect_to @commentable
 		end
-
 	end
 
 	def edit

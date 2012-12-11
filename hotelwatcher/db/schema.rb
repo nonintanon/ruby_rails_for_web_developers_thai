@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121206111333) do
+ActiveRecord::Schema.define(:version => 20121211202737) do
 
   create_table "comments", :force => true do |t|
     t.text     "body"
@@ -50,9 +50,12 @@ ActiveRecord::Schema.define(:version => 20121206111333) do
     t.string   "bed_type"
     t.text     "description"
     t.integer  "normal_rate"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
     t.integer  "hotel_id"
+    t.integer  "current_rate"
+    t.integer  "total_rooms"
+    t.integer  "available_rooms"
   end
 
   create_table "season_prices", :force => true do |t|

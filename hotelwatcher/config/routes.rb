@@ -1,15 +1,18 @@
 Hotelwatcher::Application.routes.draw do
   devise_for :users
 
+  #match 'rooms' => 'rooms#create', :as => :create, :via => :post
+
   resources :hotels do
+    resources :rooms
     resources :comments, except: [:show]
     resources :watches, except: [:show]
   end
 
-  resources :rooms do
-    resources :comments, except: [:show]
-    resources :watches, except: [:show]
-  end
+  # resources :rooms do
+  #   resources :comments, except: [:show]
+  #   resources :watches, except: [:show]
+  # end
 
   # match '/:id' => 'high_voltage/pages#show', :as => :static, :via => :get
   # root :to => 'high_voltage/pages#show', :id => 'home'

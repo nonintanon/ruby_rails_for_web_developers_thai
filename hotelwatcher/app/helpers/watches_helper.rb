@@ -3,15 +3,9 @@ module WatchesHelper
     # link_to "Test " + resource.class.name + " : " + current_user.inspect
     watching = current_user.watching_for(resource)
     if watching
-      link_to "Unwatch", 
-        polymorphic_path([resource, watching]), 
-        method: :delete, 
-        class: 'btn btn-primary'
+      link_to "Unwatch", polymorphic_path([resource, watching]), method: :delete, class: 'btn pull-right'
     else
-      link_to "Watch", 
-        polymorphic_path([resource, Watch]), 
-        method: :post, 
-        class: 'btn btn-primary'
+      link_to "Watch", polymorphic_path([resource, Watch]), method: :post, class: 'btn btn-primary pull-right'
     end  
   end
 end
