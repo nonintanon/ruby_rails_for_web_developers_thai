@@ -1,9 +1,11 @@
-<%= div_for comment, class: 'clearfix' do %>
-  <%= comment.body %>
-  <span class='pull-right'>
-    <%= comment.user rescue 'no user' %>
-    <%= comment_action_for comment %>
-  </span>
-  <span class=''>
-  <%= comment.created_at == comment.updated_at ? comment.created_at : comment.updated_at.to_s + " (edited)" %>
+<%= div_for comment, class: 'comment-post clearfix' do %>
+<%= comment.body %>
+<span class='pull-right'>
+  <%= comment.user rescue 'no user' %>
+  <%= comment_action_for comment %>
+</span>
+<span class='comment-time'>
+  <%= " on " + comment.created_at.to_s %>
+  <%= " (edited on " + comment.updated_at.to_s + ")" unless comment.created_at == comment.updated_at %>
+</span>
 <% end %>

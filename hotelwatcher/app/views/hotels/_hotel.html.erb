@@ -1,14 +1,14 @@
-<%= content_tag_for :li, hotel, class: 'row-fluid' do %>
-  <span class='span9'>
-    <%= link_to hotel.name, hotel %>
-    <%= hotel.rooms.count %> room types | 
-    <%= hotel.pictures.count %> photos | 
-    <%= hotel.comments.count %> comments
-  </span>
-  <span class='span3'>
-    <span class='pull-right'>
-      <%= link_to "Edit", edit_hotel_path(hotel), class: 'btn btn-mini' %> 
-      <%= link_to "Delete", hotel_path(hotel), method: :delete, data: { confirm: "Are you sure?" }, class: 'btn btn-mini btn-danger' %>
-    </span>
-  </span>
+<%= content_tag_for :div, hotel, class: 'row-fluid hotel-item' do %>
+<img src='/' />
+<%= link_to hotel.name, hotel, class: 'title' %>
+<br/>
+<span>
+<%= hotel.rooms.count %> room types | 
+<%= hotel.pictures.count %> photos | 
+<%= hotel.comments.count %> comments
+</span>
+<br/>
+<br/>
+<%= link_to "", edit_hotel_path(hotel), class: 'icon-edit' %> 
+<%= link_to "", hotel_path(hotel), method: :delete, data: { confirm: "Are you sure?" }, class: 'icon-trash' %>
 <% end %>

@@ -1,16 +1,16 @@
 <div class='watchbox'>
   <%= watch_button_for @hotel %><br/><br/><span class='pull-right'><%= @hotel.watchers.count %> watchers</span>
 </div>
-<h1><%= @hotel.name %></h1>
-<h4>Location: <%= @hotel.location_code %> | <%= @hotel.rooms.count %> rooms</h4>
-<div>
-  <%= link_to "Edit this Hotel", edit_hotel_path %>
-</div>
+<h1><%= @hotel.name %> <%= link_to "", edit_hotel_path, class: 'icon-edit' %></h1>
+<h4><%= @hotel.location_code %></h4>
 <div>
   <% @hotel.taggings.each do |t| %>
   <%= t.tag.name %>
   <% end %>
 </div>
+<div id='roomsbox'>
+  <%= render 'rooms/room' %>
+  </div>
 <div id='commentbox'>
   <%= render @hotel.comments, commentable: @hotel %>
   <%= render_comment_form_for @hotel %>
