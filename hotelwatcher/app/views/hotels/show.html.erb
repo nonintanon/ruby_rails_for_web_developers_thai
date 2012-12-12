@@ -1,5 +1,5 @@
 <div class='watchbox'>
-  <%= watch_button_for @hotel %><br/><br/><span class='pull-right'><%= @hotel.watchers.count %> watchers</span>
+  <%= watch_button_for @hotel %><br/><br/><span class='pull-right'><%= pluralize @hotel.watchers_count, "watch" %></span>
 </div>
 <h1><%= @hotel.name %> <%= link_to "", edit_hotel_path, class: 'icon-edit' %></h1>
 <h4><%= @hotel.location_code %></h4>

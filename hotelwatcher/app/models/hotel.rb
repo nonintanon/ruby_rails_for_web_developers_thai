@@ -6,6 +6,7 @@ class Hotel < ActiveRecord::Base
   has_many :pictures, as: :imageable
 
   has_many :taggings, as: :taggable
+  has_many :tags, through: :taggings
   
   has_many :watches, as: :watchable
   has_many :watchers, through: :watches, source: :user

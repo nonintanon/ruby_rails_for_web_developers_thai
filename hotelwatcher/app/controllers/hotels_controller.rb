@@ -5,7 +5,7 @@ class HotelsController < ApplicationController
 	# list all available hotels
 	
 	def index
-		@hotels = Hotel.all
+		@hotels = Hotel.includes(:tags)
 	end
 
 	# show hotel information - should contain room and price

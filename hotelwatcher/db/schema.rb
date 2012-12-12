@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121211202737) do
+ActiveRecord::Schema.define(:version => 20121212044053) do
 
   create_table "comments", :force => true do |t|
     t.text     "body"
@@ -25,8 +25,12 @@ ActiveRecord::Schema.define(:version => 20121211202737) do
   create_table "hotels", :force => true do |t|
     t.string   "name"
     t.string   "location_code"
-    t.datetime "created_at",    :null => false
-    t.datetime "updated_at",    :null => false
+    t.datetime "created_at",                    :null => false
+    t.datetime "updated_at",                    :null => false
+    t.integer  "rooms_count",    :default => 0
+    t.integer  "comments_count", :default => 0
+    t.integer  "tags_count",     :default => 0
+    t.integer  "watchers_count", :default => 0
   end
 
   create_table "pictures", :force => true do |t|

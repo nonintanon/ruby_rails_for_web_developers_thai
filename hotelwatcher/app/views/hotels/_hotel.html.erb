@@ -1,14 +1,14 @@
 <%= content_tag_for :div, hotel, class: 'row-fluid hotel-item' do %>
-<img src='/' />
-<%= link_to hotel.name, hotel, class: 'title' %>
-<br/>
-<span>
-<%= hotel.rooms.count %> room types | 
-<%= hotel.pictures.count %> photos | 
-<%= hotel.comments.count %> comments
-</span>
-<br/>
-<br/>
-<%= link_to "", edit_hotel_path(hotel), class: 'icon-edit' %> 
-<%= link_to "", hotel_path(hotel), method: :delete, data: { confirm: "Are you sure?" }, class: 'icon-trash' %>
+  <img src='' alt='no image at the moment' />
+  <%= link_to hotel.name, hotel, class: 'title' %>
+  <br/>
+  <span>
+    <%= pluralize hotel.rooms_count, "room type" %> | 
+    <!-- <%#= pluralize hotel.pictures_count, "picture" %> | -->
+    <%= pluralize hotel.comments_count, "comment" %>
+  </span>
+  <br/>
+  <br/>
+  <%= link_to "", edit_hotel_path(hotel), class: 'icon-edit' %> 
+  <%= link_to "", hotel_path(hotel), method: :delete, data: { confirm: "Are you sure?" }, class: 'icon-trash' %>
 <% end %>
