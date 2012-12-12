@@ -1,0 +1,9 @@
+<!-- <h4>List all hotels here <%#= @hotels.count %></h4> -->
+<div class='clearfix' style='padding-top: 30px;'>
+  <%= link_to new_hotel_path, class: 'pull-right btn btn-success' do %>
+  <i class='icon-plus icon-white'></i> New Hotel
+  <% end %>
+</div>
+<div class='clearfix'>
+  <%= render @hotels %>
+</div>

@@ -1,0 +1,48 @@
+<%= form_for [@hotel_id, @room], 
+      url: @room.new_record? ? hotel_rooms_path() : hotel_room_path(), 
+      method: @room.new_record? ? :post : :put, 
+      html: { class: 'form-horizontal' } do |f| %>
+<fieldset>
+  <legend><%= @room.hotel.name %> &rsaquo; <%= @room.new_record? ? "New Room" : "Edit Room" %></legend>
+  <div class='control-group'>
+    <%= f.label :bed_type, class: 'control-label' %>
+    <div class='controls'>
+      <%= f.text_field :bed_type, class: 'input-xxlarge', size: '10x10' %>
+    </div>
+  </div>
+  <div class='control-group'>
+    <%= f.label :description, class: 'control-label' %>
+    <div class='controls'>
+      <%= f.text_area :description, class: 'input-xxlarge', size: '10x10' %>
+    </div>
+  </div>
+  <div class='control-group'>
+    <%= f.label :normal_rate, class: 'control-label' %>
+    <div class='controls'>
+      <%= f.text_field :normal_rate, class: 'input-xxlarge', size: '5x5' %> (THB)
+    </div>
+  </div>
+  <div class='control-group'>
+    <%= f.label :current_rate, class: 'control-label' %>
+    <div class='controls'>
+      <%= f.text_field :current_rate, class: 'input-xxlarge', size: '5x5' %> (THB)
+    </div>
+  </div>
+  <div class='control-group'>
+    <%= f.label :total_rooms, class: 'control-label' %>
+    <div class='controls'>
+      <%= f.text_field :total_rooms, class: 'input-xxlarge', size: '5x5' %>
+    </div>
+  </div>
+  <div class='control-group'>
+    <%= f.label :available_rooms, class: 'control-label' %>
+    <div class='controls'>
+      <%= f.text_field :available_rooms, class: 'input-xxlarge', size: '5x5' %>
+    </div>
+  </div>
+</fieldset>
+<div class='form-actions'>
+  <%= f.submit @room.new_record? ? "Create" : "Update", class: 'btn btn-success' %>
+  <%= link_to "Cancel", edit_hotel_path(@room.hotel_id), class: 'btn' %>
+</div>
+<% end %>

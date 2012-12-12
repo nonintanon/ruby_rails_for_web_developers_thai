@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  user_id: 1
+  rate_from: 1
+  rate_to: 1
+  location: MyString
+
+two:
+  user_id: 1
+  rate_from: 1
+  rate_to: 1
+  location: MyString

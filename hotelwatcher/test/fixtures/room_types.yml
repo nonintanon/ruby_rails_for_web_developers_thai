@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  bed_type: MyString
+  description: MyText
+  normal_rate: 1
+
+two:
+  bed_type: MyString
+  description: MyText
+  normal_rate: 1

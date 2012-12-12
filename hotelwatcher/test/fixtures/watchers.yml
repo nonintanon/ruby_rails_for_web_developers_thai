@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  watchable_id: 1
+  watchable_type: 
+  user_id: 1
+
+two:
+  watchable_id: 1
+  watchable_type: 
+  user_id: 1

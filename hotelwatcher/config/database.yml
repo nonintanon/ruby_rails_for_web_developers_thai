@@ -1,0 +1,28 @@
+development:
+  adapter: postgresql
+  encoding: unicode
+  database: hotelwatcher_dev
+  host: localhost
+  pool: 5
+  timeout: 5000
+  username: nonintanon
+  password:
+test:
+  adapter: postgresql
+  encoding: unicode
+  database: hotelwatcher_test
+  host: localhost
+  pool: 5
+  timeout: 5000
+  username: nonintanon
+  password:
+
+production:
+  adapter: postgresql
+  encoding: unicode
+  database: hotelwatcher_db
+  host: localhost
+  pool: 5
+  timeout: 5000
+  username: nonintanon
+  password:
